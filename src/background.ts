@@ -3,12 +3,11 @@ chrome.runtime.onInstalled.addListener(function() {
         // console.log("The color is green.");
     });
 });
-let isOpen1: boolean = false;
-let isOpen2: boolean = false;
+
 let displayText = "";
 let tabId1: number, tabId2: number;
 chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
+    function(request, sender) {
     if (request.source == "load1" && sender.tab) {
         tabId1 = Number(sender.tab.id);
         return true;

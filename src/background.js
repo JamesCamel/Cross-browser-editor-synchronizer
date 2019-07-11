@@ -4,11 +4,9 @@ chrome.runtime.onInstalled.addListener(function () {
         // console.log("The color is green.");
     });
 });
-var isOpen1 = false;
-var isOpen2 = false;
 var displayText = "";
 var tabId1, tabId2;
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (request, sender) {
     if (request.source == "load1" && sender.tab) {
         tabId1 = Number(sender.tab.id);
         return true;
