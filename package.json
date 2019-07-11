@@ -1,0 +1,44 @@
+{
+  "name": "cross-browser-text-area-synchronizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build:live",
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./index.ts",
+    "build": "tsc",
+    "lint": "eslint --fix src/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamesCamel/Cross-browser-text-area-synchronizer.git"
+  },
+  "author": "mingHsiu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JamesCamel/Cross-browser-text-area-synchronizer/issues"
+  },
+  "homepage": "https://github.com/JamesCamel/Cross-browser-text-area-synchronizer#readme",
+  "dependencies": {
+    "@types/chrome": "0.0.86",
+    "@types/codemirror": "0.0.76",
+    "@types/node": "^12.6.1",
+    "codemirror": "^5.48.0",
+    "nodemon": "^1.19.1",
+    "ts": "^0.2.2",
+    "typescript": "^3.5.3"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "pre-commit": "^1.2.2"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "keywords": []
+}
