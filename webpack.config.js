@@ -2,6 +2,7 @@ const path = require("path");
 // const TSLintPlugin = require("tslint-webpack-plugin");
 
 module.exports = {
+    watch: true,
     mode: "production",
     entry: {
         markdown_it:  './src/markdown_it.ts',
