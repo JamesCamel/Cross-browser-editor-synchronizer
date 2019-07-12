@@ -1,4 +1,8 @@
 module.exports = {
+  'parser': '@typescript-eslint/parser',
+  'plugins': [
+    'typescript'
+  ],
   'env': {
     'browser': true,
     'node': true,
@@ -20,6 +24,13 @@ module.exports = {
       "error",
       4, {
         "SwitchCase": 1
+      }
+    ],
+    'eqeqeq': [
+      'error',
+      'always',
+      {
+          null: 'ignore'
       }
     ],
     "semi": [
@@ -72,5 +83,8 @@ module.exports = {
     "promise/avoid-new": [
       "off"
     ],
-  }
+  },
+  "extends": [
+    "prettier"
+  ]
 }

@@ -6,8 +6,8 @@
   "scripts": {
     "start": "npm run build:live",
     "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./index.ts",
-    "build": "tsc",
-    "lint": "eslint --fix src/*.js"
+    "build": "webpack --config webpack.config.js",
+    "lint": "eslint src --ext .ts --fix"
   },
   "repository": {
     "type": "git",
@@ -20,22 +20,35 @@
   },
   "homepage": "https://github.com/JamesCamel/Cross-browser-text-area-synchronizer#readme",
   "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.5.0",
     "@types/chrome": "0.0.86",
     "@types/codemirror": "0.0.76",
     "@types/node": "^12.6.1",
     "codemirror": "^5.48.0",
+    "common-js": "^0.3.8",
+    "eslint-traverser": "^1.5.2",
     "nodemon": "^1.19.1",
-    "ts": "^0.2.2",
-    "typescript": "^3.5.3"
+    "ts": "^0.2.2"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
     "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-config-standard": "^12.0.0",
+    "eslint-loader": "^2.2.1",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
-    "pre-commit": "^1.2.2"
+    "eslint-plugin-typescript": "^0.14.0",
+    "pre-commit": "^1.2.2",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "typescript-eslint-parser": "^22.0.0",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5",
+    "webpack-merge": "^4.2.1"
   },
   "pre-commit": [
     "lint"
