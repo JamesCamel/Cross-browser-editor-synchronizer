@@ -1,9 +1,8 @@
 import * as CodeMirror from 'codemirror';
 const gistEditor = CodeMirror.fromTextArea(document.querySelector('textarea') as HTMLTextAreaElement);
 
-//Send tabId to background.
 window.onload = () => {
-    chrome.runtime.sendMessage({ source: "load2" });
+    chrome.runtime.sendMessage({ source: "loadGist" });
     gistEditor.on("update", () => {
         chrome.runtime.sendMessage({ source: "gist", text: gistEditor.getValue() }, function () {});
     });
