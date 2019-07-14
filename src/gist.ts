@@ -4,24 +4,20 @@ const injectScript = (file, node) => {
     s.setAttribute('type', 'text/javascript');
     s.setAttribute('src', file);
     th.appendChild(s);
-}
-injectScript( chrome.extension.getURL('/inject.js'), 'body');
-
+};
+injectScript(chrome.extension.getURL('/inject.js'), 'body');
 window.onload = () => {
     let buf = document.querySelector('#mirror-change-detector');
-
     chrome.runtime.sendMessage({ source: "loadGist" });
     buf.addEventListener("DOMSubtreeModified", () => {
-        console.log(buf.textContent);
-        chrome.runtime.sendMessage({ source: "gist", text: buf.textContent }, function () {});
+        chrome.runtime.sendMessage({ source: "gist", text: buf.textContent }, function () { });
     });
 
     chrome.runtime.onMessage.addListener((request) => {
-        if (request) {
+        if (request && window.onload)
             buf.textContent = request;
-        } else {
-            chrome.runtime.sendMessage({ source: "gist", text: buf.textContent }, function () {});
-        }
+        else
+            chrome.runtime.sendMessage({ source: "gist", text: buf.textContent }, function () { });
         return true;
     });
 };
