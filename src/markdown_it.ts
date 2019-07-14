@@ -7,9 +7,10 @@ window.onload = () => {
     });
 
     chrome.runtime.onMessage.addListener((request) => {
-        if (request)
-            mdTextArea.value = request;
+        if(request.open === false) 
+            chrome.runtime.sendMessage({ source: "markdown_it", text: mdTextArea.value , open: true}, () => { });
         else
-            chrome.runtime.sendMessage({ source: "markdown_it", text: mdTextArea.value }, () => { });
+            mdTextArea.value = request.text;
+        return true;
     });
 };

@@ -6,6 +6,7 @@ const injectScript = (file, node) => {
     th.appendChild(s);
 };
 injectScript(chrome.extension.getURL('/inject.js'), 'body');
+
 window.onload = () => {
     let buf = document.querySelector('#mirror-change-detector');
     chrome.runtime.sendMessage({ source: "loadGist" });
@@ -14,10 +15,7 @@ window.onload = () => {
     });
 
     chrome.runtime.onMessage.addListener((request) => {
-        if (request && window.onload)
-            buf.textContent = request;
-        else
-            chrome.runtime.sendMessage({ source: "gist", text: buf.textContent }, function () { });
+        buf.textContent = request;
         return true;
     });
 };
