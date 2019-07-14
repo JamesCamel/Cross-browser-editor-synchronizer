@@ -1,11 +1,11 @@
 const path = require("path");
-// const TSLintPlugin = require("tslint-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+
 
 module.exports = {
-    watch: true,
     mode: "production",
     entry: {
-        markdown_it:  './src/markdown_it.ts',
+        markdown_it: './src/markdown_it.ts',
         gist: './src/gist.ts',
         // inject: './src/inject.ts',
         background: './src/background.ts',
@@ -16,7 +16,6 @@ module.exports = {
     output: {
         path: path.resolve("dist"),
         filename: "[name].js",
-        // publicPath: "./",
         libraryTarget: "umd",
     },
     module: {
@@ -27,9 +26,10 @@ module.exports = {
             },
         ],
     },
-    // plugins: [
-    //     new TSLintPlugin({
-    //         files: ["./src/**/*.ts"],
-    //     }),
-    // ],
+    plugins: [
+        new CopyWebpackPlugin([
+            { from: "./src/manifest.json" },
+            { from: "./src/inject.js" },
+        ])
+    ],
 };
