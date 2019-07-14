@@ -2,7 +2,7 @@
     "name": "Cross browser text synchronizer",
     "version": "1.0",
     "description": "Build an Extension!",
-    "permissions": ["storage"],
+    "permissions": ["storage", "https://gist.github.com/"],
     "background": {
       "scripts": ["background.js"],
       "persistent": false
@@ -17,6 +17,7 @@
           "js": ["gist.js"]
         }
       ],
-    "manifest_version": 2
+    "manifest_version": 2,
+    "web_accessible_resources" : ["inject.js"],
     
 }

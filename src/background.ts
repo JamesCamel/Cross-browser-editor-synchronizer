@@ -25,6 +25,7 @@ chrome.runtime.onMessage.addListener(
                     return true;
                 }
                 default:
+                    return true;
                     break;
             }
         }

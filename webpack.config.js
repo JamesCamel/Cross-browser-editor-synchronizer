@@ -7,6 +7,7 @@ module.exports = {
     entry: {
         markdown_it:  './src/markdown_it.ts',
         gist: './src/gist.ts',
+        // inject: './src/inject.ts',
         background: './src/background.ts',
     },
     resolve: {
