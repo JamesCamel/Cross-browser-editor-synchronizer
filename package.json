@@ -25,7 +25,7 @@
     "@types/chrome": "0.0.86",
     "@types/codemirror": "0.0.76",
     "@types/node": "^12.6.1",
-    "codemirror": "^5.48.0",
+    "codemirror": "^5.58.2",
     "common-js": "^0.3.8",
     "eslint-traverser": "^1.5.2",
     "nodemon": "^1.19.1",
