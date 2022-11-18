@@ -51,7 +51,7 @@
     "typescript": "^3.5.3",
     "typescript-eslint-parser": "^22.0.0",
     "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5",
+    "webpack-cli": "^3.3.12",
     "webpack-merge": "^4.2.1"
   },
   "pre-commit": [
